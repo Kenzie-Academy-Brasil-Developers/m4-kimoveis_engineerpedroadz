@@ -17,3 +17,4 @@ export const updateUserSchema = userWithoutAdmin.partial();
 export const userReturnSchema = userSchema.omit({password:true});
 export const userReadSchema = userReturnSchema.array();
 export const userLoginSchema = userSchema.pick({email:true, password:true})
+export const userListReturnSchema = userReturnSchema.array()

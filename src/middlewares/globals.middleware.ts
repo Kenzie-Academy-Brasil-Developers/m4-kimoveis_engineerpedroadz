@@ -25,7 +25,7 @@ export const verifyToken = (req:Request, res: Response, next:NextFunction): void
 export const verifyAdmin = (req:Request, res:Response, next:NextFunction): void =>{
     const {admin} = res.locals.decoded;
 
-    if(!admin) throw new AppError('Insufficient permissions',403);
+    if(!admin) throw new AppError('Insufficient permission',403);
 
     return next();
 }
@@ -37,7 +37,7 @@ export const verifyPermissions = (req:Request, res:Response, next:NextFunction):
     if(admin) return next();
 
     if(id !== sub){
-        throw new AppError('Insufficient permissions',409)
+        throw new AppError('Insufficient permission',409)
     }
 
     return next();
